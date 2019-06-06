@@ -1,0 +1,1081 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+    <script src="jquery-3.4.0.js"></script>
+    <style type="text/css">      
+        #main {
+            width:1000px;
+            height:700px;
+            float: left;
+            position:absolute;
+            top: 38px;
+        }
+        #list {
+            background-color:#ffffff;            
+            border-radius:25px;   
+            border:2px solid;         
+            width:300px;
+            height:800px;            
+            position: absolute;
+            float: left;
+            left: 1200px;
+            top:30px;
+            border-style:outset;
+            
+        }
+        #members {
+            line-height:30px;
+            background-color:#ffffff;
+            height:80%;
+            margin: 2%;
+            position:relative;
+            bottom: 20px;
+        }
+        h4,h6 {
+                color: black;
+                font-weight: bold;
+                text-align: center;
+        }
+        #members ul{
+
+                padding:0px ;
+                border-radius:15px;
+                height: 100%;
+                background: #ffffff;
+                overflow-y:scroll;
+                overflow-y:auto;
+        }
+        #members ul li{
+
+                list-style: none;
+                height: 20px;
+                line-height: 20px;
+                background-color:#ffffff;
+                border-bottom: 1px dashed gray;
+                text-indent: 15px;
+                font-size: 14px;
+            }
+        #div1{
+            width:265px;
+            height:216px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left: 613px;
+            top:141px;
+            text-align: center;
+            line-height: 170px; 
+        }
+        #div2{
+            width:106px;
+            height:216px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:506px;
+            top:141px;
+            text-align: center;
+            line-height: 170px; 
+        }
+        #div3{
+            width:133px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:133px;
+            top:141px;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div4{
+            width:133px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:133px;
+            top:184px;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div5{
+            width:133px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:133px;
+            top:228px;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div6{
+            width:133px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:133px;
+            top:272px;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div7{
+            width:106px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:160px;
+            top:359px;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div8{
+            width:53px;
+            height:152px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:293px;
+            top:162px;
+            text-align: center;
+            line-height: 35px; 
+        }
+        #div9{
+            width:53px;
+            height:43px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:373px;
+            top:183px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 15px; 
+        }
+        #div10{
+            width:53px;
+            height:86px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:373px;
+            top:228px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 50px; 
+        }
+        #div11{
+            width:53px;
+            height:41px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:373px;
+            top:316px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div12{
+            width:53px;
+            height:41px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:613px;
+            top:404px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div13{
+            width:104px;
+            height:41px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:668px;
+            top:404px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div14{
+            width:53px;
+            height:41px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:773px;
+            top:404px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div15{
+            width:53px;
+            height:41px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:827px;
+            top:404px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div16{
+            width:53px;
+            height:21px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:372px;
+            top:119px;
+            font-size: 0.7em;
+            text-align: center;
+            line-height: 0px; 
+        }
+        #div17{
+            width:53px;
+            height:21px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:372px;
+            top:402px;
+            font-size: 0.7em;
+            text-align: center;
+            line-height: 0px; 
+        }
+        #div18{
+            width:53px;
+            height:21px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:372px;
+            top:119px;
+            background-color: #fff;
+            font-size: 0.7em;
+            text-align: center;
+            line-height: 0px; 
+        }
+        #div19{
+            width:53px;
+            height:21px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:372px;
+            top:402px;
+            background-color: #fff;
+            font-size: 0.7em;
+            text-align: center;
+            line-height: 0px; 
+        }
+        #div20{
+            width:133px;
+            height:173px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:133px;
+            top:141px;
+            text-align: center;
+            line-height: 140px; 
+        }        
+        #div21{
+            width:158px;
+            height:64px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:108px;
+            top:380px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 35px; 
+        }
+        #div22{
+            width:53px;
+            height:43px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:373px;
+            top:183px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 15px; 
+        }
+        #div23{
+            width:133px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:133px;
+            top:315px;
+            text-align: center;
+            line-height: 10px; 
+        }
+        #div24{
+            width:53px;
+            height:42px;
+	        border:2px rgb(0, 0, 0) solid;
+            position: absolute;
+            left:373px;
+            top:228px;
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 12px; 
+        }
+
+        #div_0{
+            width:26px;
+            height:351px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:882px;
+            top:98px;
+        }
+        #div_1{
+            width:27px;
+            height:286px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:98px;
+        }
+        #div_2{
+            width:509px;
+            height:21px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:98px;
+        }
+        #div_3{
+            width:250px;
+            height:21px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:641px;
+            top:98px;
+        }
+        #div_4{
+            width:256px;
+            height:23px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:120px;
+            top:118px;
+        }
+        #div_5{
+            width:150px;
+            height:42px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:120px;
+            top:317px;
+        }
+        #div_6{
+            width:78px;
+            height:220px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:428px;
+            top:141px;
+        }
+        #div_7{
+            width:506px;
+            height:21px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:427px;
+        }
+        #div_8{
+            width:27px;
+            height:40px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:405px;
+        }
+        #div_9{
+            width:27px;
+            height:40px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left:162px;
+            top:407px;
+        }
+        #div_10{
+            width:54px;
+            height:40px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left:215px;
+            top:407px;
+        }
+        #div_11{
+            width:27px;
+            height:40px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left:295px;
+            top:407px;
+        }
+        #div_12{
+            width:27px;
+            height:40px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left:508px;
+            top:407px;
+        }
+        #div_13{
+            width:27px;
+            height:40px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            left:561px;
+            top:407px;
+        }
+        #div_20{
+            width:800px;
+            height:44px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:97px;
+        }
+        #div_21{
+            width:27px;
+            height:284px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:97px;
+        }
+        #div_22{
+            width:800px;
+            height:22px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:107px;
+            top:427px;
+        }
+        #div_23{
+            width:480px;
+            height:350px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:427px;
+            top:97px;
+        }
+        #div_24{
+            width:55px;
+            height:85px;
+            background-color: rgb(216, 212, 212);
+            position: absolute;
+            left:372px;
+            top:274px;
+        }
+        #back1{
+            background-color:#ffffff;            
+            border-radius:25px;   
+            border:2px solid;         
+            width:870px;
+            height:490px;            
+            position: absolute;
+            float: left;
+            left: 50px;
+            top:30px;
+            border-style:outset;
+
+        }
+        #back2{
+            background-color:#ffffff;            
+            border-radius:25px;   
+            border:2px solid;         
+            width:550px;
+            height:298px;            
+            position: absolute;
+            float: left;
+            left: 50px;
+            top:532px;
+            border-style:outset;
+
+        }
+        #back3{
+            background-color:#ffffff;            
+            border-radius:25px;   
+            border:2px solid;         
+            width:550px;
+            height:298px;            
+            position: absolute;
+            float: left;
+            left: 630px;
+            top:532px;
+            border-style:outset;
+
+        }
+        #back4{
+            background-color:#ffffff;            
+            border-radius:25px;   
+            border:2px solid;         
+            width:250px;
+            height:490px;            
+            position: absolute;
+            float: left;
+            left: 930px;
+            top:30px;
+            border-style:outset;
+
+        }
+        div.search {padding: 25px 0;}
+
+        form {
+            position: absolute;;
+            width: 180px;
+            margin: 0 auto;
+        }
+        /*搜索框1*/
+        .bar {background: rgb(255, 255, 255);}
+        .bar input {
+            border: 2px solid #9E9C9C;
+            border-radius: 5px;
+            background: rgb(255, 255, 255);
+            color: #9E9C9C;
+            width: 100%;
+            height: 30px;
+            padding-left: 10px;            
+            outline: none;
+            position: absolute;
+        }
+        .bar button {
+            top: 0;
+            left: 200px;
+            background: #9E9C9C;
+            border-radius: 0 5px 5px 0;
+            height: 36px;
+            width: 36px;
+            cursor: pointer;
+            position: absolute;
+            border: none;
+            outline: none;
+            font-family: sans-serif;
+            font-size: 10px
+        }
+        #bar1 input{
+            top:0px;
+            left:20px;
+        }
+        #bar2 input{
+            top:0px;
+            left:20px
+        }
+        .button{
+                width: 80px;
+                line-height: 38px;
+                text-align: center;
+                font-weight: bold;
+                color: #fff;
+                text-shadow:1px 1px 1px #333;
+                border-radius: 5px;
+                margin:0 20px 20px 0;
+                position: relative;
+                overflow: hidden;
+                }
+        .button:nth-child(6n){
+                margin-right: 0;
+                }
+        .button.gray{
+                color: #8c96a0;
+                text-shadow:1px 1px 1px #fff;
+                border:1px solid #dce1e6;
+                box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;
+                background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);
+                background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
+                background: linear-gradient(top,#f2f3f7,#e4e8ec);
+                }
+        .round,.side,.tags{
+                padding-right: 30px;
+                }
+        .round:after{
+                position: absolute;
+                display: inline-block;
+                content: "\003c";
+                top:50%;
+                right:10px;
+                margin-top: -10px;
+                width: 17px;
+                height: 20px;
+                padding-left: 3px;
+                line-height:18px;
+                font-size: 10px;
+                font-weight: normal;
+                border-radius: 10px;
+                text-shadow:-2px 0 1px #333;
+                -webkit-transform:rotate(-90deg);
+                -moz-transform:rotate(-90deg); 
+                transform:rotate(-90deg);
+                }
+        .gray.round:after{
+                box-shadow:1px 0 1px rgba(255,255,255,1) inset,1px 0 1px rgba(0,0,0,.2);
+                background:-webkit-linear-gradient(top,#dce1e6,#dde2e7);
+                background:-moz-linear-gradient(top,#dce1e6,#dde2e7);
+                background:linear-gradient(top,#dce1e6,#dde2e7);
+                text-shadow:-2px 0 1px #fff;
+                }
+        .side:after{
+                position: absolute;
+                display: inline-block;
+                content: "\00bb";
+                top:3px;
+                right:-4px;
+                width: 38px;
+                height:30px;
+                font-weight: normal;
+                line-height: 26px;
+                border-radius:0 0 5px 5px;
+                text-shadow:-2px 0 1px #333;
+                -webkit-transform:rotate(-90deg);
+                -moz-transform:rotate(-90deg);
+                transform:rotate(-90deg);
+                }
+        .gray.side:after{
+                text-shadow:-2px 0 1px #fff;
+                border-top: 1px solid #d4d4d4;
+                box-shadow:-2px 0 1px #eceef1 inset;
+                background:-webkit-linear-gradient(right,#e1e6ea,#f2f2f6 60%);
+                background:-moz-linear-gradient(right,#e1e6ea,#f2f2f6 60%);
+                background:linear-gradient(right,#e1e6ea,#f2f2f6 60%); 
+                }
+        .tags:after{
+                font-weight: normal;
+                position: absolute;
+                display: inline-block;
+                content: "FREE";
+                top:-3px;
+                right: -33px;
+                color: #fff;
+                text-shadow:none;
+                width: 85px;
+                height:25px;
+                line-height: 28px;
+                -webkit-transform:rotate(45deg) scale(.7,.7);
+                -moz-transform:rotate(45deg) scale(.7,.7);
+                transform:rotate(45deg) scale(.7,.7);
+                }
+        .gray.tags:after{
+                background: #8c96a0;
+                border:2px solid #fff;    
+                }
+        .rarrow:after,    
+        .rarrow:before,
+        .larrow:after,    
+        .larrow:before{
+                position:absolute;
+                content: "";
+                display: block;
+                width: 28px;
+                height: 28px;
+                -webkit-transform:rotate(45deg);
+                -moz-transform:rotate(45deg);
+                transform:rotate(45deg);
+                }
+        .rarrow:before{
+                width: 27px;
+                height: 27px;
+                top: 6px;
+                right: -13px;
+                clip: rect(auto auto 26px 2px);
+                }
+        .rarrow:after{
+                top: 6px;
+                right: -12px;
+                clip: rect(auto auto 26px 2px);
+                }
+        .gray.rarrow:before{
+                background: #d6dbe0;
+                }
+        .gray.rarrow:after{
+                box-shadow: 0 1px 0 #fff inset,-1px 0 0 #b7babd inset;
+                background:-webkit-linear-gradient(top left,#f2f3f7,#e4e8ec);
+                background:-moz-linear-gradient(top left,#f2f3f7,#e4e8ec);
+                background:linear-gradient(top left,#f2f3f7,#e4e8ec);
+                }
+        .larrow:before{
+                top: 6px;
+                left: -13px;
+                width: 27px;
+                height: 27px;
+                clip: rect(2px 26px auto auto);
+                }
+        .larrow:after{
+                top: 6px;
+                left: -12px;
+                clip: rect(2px 26px auto auto);
+                }
+        .gray.larrow:before{
+                background: #d6dbe0;
+                }
+        .gray.larrow:after{
+                box-shadow: 0 -1px 0 #b7babd inset,1px 0 0 #fff inset;
+                background:-webkit-linear-gradient(top left,#f2f3f7,#e4e8ec);
+                background:-moz-linear-gradient(top left,#f2f3f7,#e4e8ec);
+                background:linear-gradient(top left,#f2f3f7,#e4e8ec);
+                }
+        .gray:hover{
+                background: -webkit-linear-gradient(top,#fefefe,#ebeced);
+                background: -moz-linear-gradient(top,#f2f3f7,#ebeced);
+                background: linear-gradient(top,#f2f3f7,#ebeced);
+                }
+        .gray:active{
+                top:1px;
+                box-shadow: 0 1px 3px #a8abae inset,0 3px 0 #fff;
+                background: -webkit-linear-gradient(top,#e4e8ec,#e4e8ec);
+                background: -moz-linear-gradient(top,#e4e8ec,#e4e8ec);
+                background: linear-gradient(top,#e4e8ec,#e4e8ec);
+                }
+        .gray.side:hover:after{
+                background:-webkit-linear-gradient(right,#e7ebee,#f8f8f8 60%);
+                background:-moz-linear-gradient(right,#e7ebee,#f8f8f8 60%);
+                background:linear-gradient(right,#e7ebee,#f8f8f8 60%);
+                }
+        .gray.side:active:after{
+                top:4px;
+                border-top: 1px solid #9fa6ab;
+                box-shadow:-1px 0 1px #a8abae inset;
+                background:-webkit-linear-gradient(right,#e4e8ec,#e4e8ec 60%);
+                background:-moz-linear-gradient(right,#e4e8ec,#e4e8ec 60%);
+                background:linear-gradient(right,#e4e8ec,#e4e8ec 60%); 
+                }
+        .gray.rarrow:hover:after,
+            .gray.rarrow:hover:after{
+                background:-webkit-linear-gradient(top left,#fefefe,#ebeced);
+                background:-moz-linear-gradient(top left,#fefefe,#ebeced);
+                background:linear-gradient(top left,#fefefe,#ebeced);
+                }
+        .gray.rarrow:active:after,
+            .gray.larrow:active:after{
+                background:-webkit-linear-gradient(top left,#e4e8ec,#e4e8ec);
+                background:-moz-linear-gradient(top left,#e4e8ec,#e4e8ec);
+                background:linear-gradient(top left,#e4e8ec,#e4e8ec);
+                }
+        .gray.rarrow:active:after{
+                box-shadow: 0 1px 0 #b7babd inset,-1px 0 0 #b7babd inset;
+                }
+        .gray.larrow:active:after{
+                box-shadow: 0 -1px 0 #b7babd inset,1px 0 0 #b7babd inset;
+                }
+        .testswitch {
+                position: absolute;
+                top:300px;
+                left:20px;
+                width: 90px;
+                margin: 0;
+                -webkit-user-select:none; 
+                -moz-user-select:none; 
+                -ms-user-select: none;
+            }
+            
+        .testswitch-checkbox {
+                display: none;
+            }
+ 
+        .testswitch-label {
+                display: block; 
+                overflow: hidden; 
+                cursor: pointer;
+                border: 2px solid #999999; 
+                border-radius: 20px;
+            }
+ 
+        .testswitch-inner {
+                display: block; 
+                width: 200%; 
+                margin-left: -100%;
+                transition: margin 0.3s ease-in 0s;
+            }
+ 
+        .testswitch-inner::before, .testswitch-inner::after {
+                display: block; 
+                float: right; 
+                width: 50%; 
+                height: 30px; 
+                padding: 0; 
+                line-height: 30px;
+                font-size: 14px; 
+                color: white; 
+                font-family: 
+                Trebuchet, Arial, sans-serif; 
+                font-weight: bold;
+                box-sizing: border-box;
+            }
+ 
+        .testswitch-inner::after {
+                content: attr(data-on);
+                padding-left: 10px;
+                background-color: #ffffff; 
+                color: #999999;
+            }
+ 
+        .testswitch-inner::before {
+                content: attr(data-off);
+                padding-right: 10px;
+                background-color: #EEEEEE; 
+                color: #999999;
+                text-align: right;
+            }
+ 
+        .testswitch-switch {
+                position: absolute; 
+                display: block; 
+                width: 22px;
+                height: 22px;
+                margin: 4px;
+                background: #FFFFFF;
+                top: 0; 
+                bottom: 0;
+                right: 56px;
+                border: 2px solid #999999; 
+                border-radius: 20px;
+                transition: all 0.3s ease-in 0s;
+            }
+ 
+        .testswitch-checkbox:checked + .testswitch-label .testswitch-inner {
+                margin-left: 0;
+            }
+ 
+        .testswitch-checkbox:checked + .testswitch-label .testswitch-switch {
+                right: 0px; 
+            }
+        #duoxuan {
+            position: relative;
+            left: 20px;
+            bottom:20px;
+        }
+        </style>
+        <style type="text/css">
+    
+            /* Giving a font-family and Size to give good look */
+            body{
+                font-family: Arial, Helvetica,sans-serif; 
+                font-size:15px;
+            }
+            
+            /* Adjusting the margins, paddings and no list styles */
+            .navigation  {
+                margin:0; 
+                padding:0; 
+                list-style:none;
+                position: absolute;
+                left:108px;
+                top:58px;
+            }	
+            
+            /* Little tricking with positions */
+            .navigation  li {
+                float:left;			/* Show list items inline */
+                width:150px; 
+                position:relative; 
+                border-style:outset;
+            }
+                
+            /* Playing with Main Categories */
+            .navigation  li a {
+                background:rgb(255, 255, 255); 
+                color:rgb(0, 0, 0);
+                display:block;  	/* Making sure a element covers whole li area */
+                padding:8px 7px 8px 7px; 
+                text-decoration:none; /* No underline */
+                border-top:1px solid #F2861D;
+                text-align:center; 
+                text-transform:uppercase;
+            }
+        
+            .navigation  li a:hover {
+                color:#F2861D;
+            }
+                
+            /* Sub Cat Menu stuff*/
+            .navigation  ul {
+                position:absolute; 
+                left:0; 
+                display:none; /* Hide it by default */
+                margin:0 0 0 -1px; 
+                padding:0; 
+                list-style:none;
+                border-bottom:3px solid #F2861D;
+            }
+                
+            .navigation  ul li {
+                width:150px; 
+                float:left; 
+                border-top:none;
+            }
+                
+            /* Sub Cat menu link properties */
+            .navigation  ul a {
+                display:block;    	/* Making sure a element covers whole li area */
+                height:15px;
+                padding:8px 7px 13px 7px; 
+                color:rgb(0, 0, 0);
+                text-decoration:none;	
+                border-top:none;
+                border-bottom:1px dashed #6B6B6B;
+            }
+                
+            .navigation  ul a:hover {
+                color:#F2861D;
+            }
+        </style>
+</head>
+
+<body bgcolor="#FFF8DC">
+    <div id='back1'>  </div>
+    <div id='div_0' class="map_01"></div><div id='div_1' class="map_01"></div><div id='div_2' class="map_01"></div><div id='div_3' class="map_01"></div>
+    <div id='div_4' class="map_01"></div><div id='div_5' class="map_01"></div><div id='div_6' class="map_01"></div><div id='div_7' class="map_01"></div>
+    <div id='div_8' class="map_01"></div><div id='div_9' class="map_01"></div><div id='div_10' class="map_01"></div><div id='div_11' class="map_01"></div>
+    <div id='div_12' class="map_01"></div><div id='div_13' class="map_01"></div>
+    <div id='div_20' class='map_02'></div><div id='div_21' class='map_02'></div><div id='div_22' class='map_02'></div>
+    <div id='div_23' class='map_02'></div><div id='div_24' class='map_02'></div>
+    <div id='div1' class="map_01">
+        <h2>主会场</h2>
+    </div>
+    <div id='div2' class="map_01">
+        <h2>展厅</h2>
+    </div>
+    <div id='div3' class="map_01">
+        <h2>分会场A</h2>
+    </div>
+    <div id='div4' class="map_01">
+        <h2>分会场B</h2>
+    </div>
+    <div id='div5' class="map_01">
+        <h2>分会场C</h2>
+    </div>
+    <div id='div6' class="map_01">
+        <h2>分会场D</h2>
+    </div>
+    <div id='div7' class="map_01">
+        <h2>签到处</h2>
+    </div>
+    <div id='div8' class="map_01">
+        <h2>海<br/>报<br/>区</h2>
+    </div>
+    <div id='div9' class="map_01">
+        <h3>厕所1</h3>
+    </div>
+    <div id='div10' class="map_01">
+        <h3>room1</h3>
+    </div>
+    <div id='div11' class="map_01">
+        <h3>room2</h3>
+    </div>
+    <div id='div12' class="map_01">
+        <h3>服务台</h3>
+    </div>
+    <div id='div13' class="map_01">
+        <h3>room3</h3>
+    </div>
+    <div id='div14' class="map_01">
+        <h3>room4</h3>
+    </div>
+    <div id='div15' class="map_01">
+        <h3>厕所2</h3>
+    </div>
+    <div id='div16' class="map_01">
+        <h3>扶梯</h3>
+    </div>
+    <div id='div17' class="map_01">
+        <h3>扶梯</h3>
+    </div>
+    <div id='div18' class="map_02">
+        <h3>扶梯</h3>
+    </div>
+    <div id='div19' class="map_02">
+        <h3>扶梯</h3>
+    </div>
+    <div id='div20' class="map_02">
+        <h2>餐厅</h2>
+    </div>
+    <div id='div21' class="map_02">
+        <h2>休闲区</h2>
+    </div>
+    <div id='div22' class="map_02">
+        <h3>厕所3</h3>
+    </div>
+    <div id='div23' class="map_02">
+        <h3>room5</h3>
+    </div>
+    <div id='div24' class="map_02">
+        <h3>room6</h3>
+    </div>    
+    <div id="main" ></div>
+    
+    <div id='list'>
+            <h4>人员列表</h4>            
+            <h6 id="h_01"></h6>
+            <div id="members"></div>
+    </div>
+    <div id='back2'></div><div id='back3'></div>
+    <div id='back4'>
+        <h2 style="text-align:center">菜单栏</h2>
+        <div class="search bar" id='bar1'>
+            <form>
+                <input type="text" placeholder="请输入人员ID" id='person_id'>
+                <button type="button" onclick="quperson()">查询</button>
+            </form>
+        </div>
+        <div class="search bar" id='bar2'>
+            <form>
+                <input type="text" placeholder="请输入时间戳" id='time_chuo'>
+                <button type="button" onclick="qutime()">查询</button>
+            </form>
+        </div>            
+    </br></br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" class="button gray" onclick="reView()">重置</button>
+    <h5 id='duoxuan'>多选模式：</h5>
+        <div class="switchOn switchOff">
+            <em></em>
+        </div>   
+        <div class="testswitch">
+			<input class="testswitch-checkbox" id="onoffswitch" type="checkbox">
+			<label class="testswitch-label" for="onoffswitch">
+				<span class="testswitch-inner" data-on="ON" data-off="OFF"></span>
+				<span class="testswitch-switch"></span>
+			</label>
+		</div>
+
+    </div>
+    <div style="text-align:center;clear:both;">
+    </div>
+    
+    <div style="width:650px; margin:0px; top:170px auto" id='sel'>
+    
+    <br/>
+    <br/>
+    <br/>
+    <ul class="navigation">
+        <li id="day"><a href="#" id="day0">天数  </a>
+            <ul>
+                <li><a href="#" rel="1">第1天</a></li>
+                <li><a href="#" rel="2">第2天</a></li>
+                <li><a href="#" rel="3">第3天</a></li>
+            </ul>
+            <div class="clear"></div>
+        </li>
+        <li id="floor"><a href="#" id="floor0">层数 </a>
+            <ul>
+                <li><a href="#" rel="1">第1层</a></li>
+                <li><a href="#" rel="2">第2层</a></li>
+            </ul>			
+            <div class="clear"></div>
+        </li>
+    </ul>
+    
+    <div class="clear"></div>
+</div>
+<script src="test1.js"></script>
+    
+
+
+
+
+
+
+
+
+</body>
+</html>
